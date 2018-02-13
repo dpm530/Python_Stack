@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Survey</title>
+</head>
+<body>
+   <h1>Dojo Survey</h1>
+   <form action='/process' method='post' >
+      {% csrf_token %}
+      Your Name: <input type='text'name='name' />
+      Dojo Location: <select name="location">
+         <option value="location1">Dallas</option>
+         <option value="location2">Austin</option>
+      </select>
+      Favorite Language: <select name="language">
+         <option value="language1">Python</option>
+         <option value="language2">Ruby</option>
+      </select>
+      Comment(optional):<textarea name='comment'></textarea>
+      <input type='submit'value='Submit' />
+   </form>
+</body>
+</html>

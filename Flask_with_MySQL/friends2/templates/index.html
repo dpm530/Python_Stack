@@ -1,0 +1,22 @@
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  <h1>These are all my friends!</h1>
+  {%for friend in all_friends: %}
+  <p>ID: {{friend['id']}}</p>
+  <p>First Name: {{friend['name']}}</p>
+  <p>Age: {{friend['age']}}</p>
+  <form action="/remove_friend/{{friend.id}}" method="POST" >
+     <input type="submit" value="delete" />
+  </form>
+  <hr>
+  {%endfor%}
+  <h2>Add a Friend:</h2>
+  <form action='/friends' method='POST'>
+    <label for="name">First Name:<input type="text" name="name" id="name"></label>
+    <label for="age">Last Name:<input type="text" name="age" id="age"></label>
+    <input type="submit" value="add">
+  </form>
+</body>
+</html>
