@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Home Page</title>
+   </head>
+   <body>
+      <h1>Welcome, {{current_user.first_name}}!</h1>
+      <a href='/'>Logout</a>
+      <h1>Friends:</h1>
+      {% for friend in friends %}
+         <p>{{friend.first_name}} {{friend.last_name}}</p>
+         <form action='/removeFriend/{{friend.id}}' method='post'>
+            {% csrf_token %}
+            <input type='submit' value='Remove Friend'>
+         </form>
+         <hr>
+      {% endfor %}
+      <br>
+      <h1>Members:</h1>
+      {% for other_user in users %}
+         <p>{{other_user.first_name}} {{other_user.last_name}}</p>
+         <form action='/addFriend/{{other_user.id}}' method='post'>
+            {% csrf_token %}
+            <input type='submit' value='Add Friend'>
+         </form>
+         <hr>
+      {% endfor %}
+   </body>
+</html>

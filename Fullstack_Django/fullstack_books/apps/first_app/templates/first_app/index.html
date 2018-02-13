@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Fullstack Books</title>
+</head>
+<body>
+   <h1>Add a Book</h1>
+   {%for book in books%}
+      <h3>{{book.id}}</h3>
+      <h3>{{book.title}}</h3>
+      <h3>{{book.author}}</h3>
+      <h3>{{book.category}}</h3>
+   {%endfor%}
+   <form action='/book' method='post'>
+      {% csrf_token %}
+      Title: <input type='text' name='title'/>
+      Author: <input type='text' name='author'/>
+      Category: <input type='text' name='category'/>
+      <input type='submit' value='Submit' />
+   </form>
+</body>
+</html>

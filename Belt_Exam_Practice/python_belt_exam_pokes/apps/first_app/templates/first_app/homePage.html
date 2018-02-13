@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Home Page</title>
+   </head>
+   <body>
+      <h1>Welcome, {{current_user.first_name}}!</h1>
+      <a href='/'>Logout</a>
+      <h2>Total Pokes:</h2>
+      {% for poke in total_pokes %}
+         <P>{{poke.first_name}} {{poke.last_name}}: {{poke.num_pokes}}</P>
+      {% endfor %}
+      <h1>Friends:</h1>
+      {% for friend in friends %}
+         <p>{{friend.first_name}} {{friend.last_name}}</p>
+         <form action='/removeFriend/{{friend.id}}' method='post'>
+            {% csrf_token %}
+            <input type='submit' value='Remove Friend'>
+         </form>
+         <a href='/poke/{{friend.id}}'>Poke</a>
+         <hr>
+      {% endfor %}
+      <br>
+      <h1>Members:</h1>
+      {% for other_user in users %}
+         <p>Poker: {{other_user.poked_by.all|length}}</p>
+         <p>{{other_user.first_name}} {{other_user.last_name}}</p>
+         <form action='/addFriend/{{other_user.id}}' method='post'>
+            {% csrf_token %}
+            <input type='submit' value='Add Friend'>
+         </form>
+         <a href='/poke/{{other_user.id}}'>Poke</a>
+         <hr>
+      {% endfor %}
+   </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Success</title>
+   </head>
+   <body>
+      <h1>Welcome {{user.alias}}!</h1>
+      <a href='/'>Logout</a><br>
+      <a href='/createWindow'>Add Book and Review</a>
+      <h1>Recent Book Reviews:</h1>
+      {% for book in books %}
+         <a href='/newBook/{{book.id}}'>{{book.title}}</a><br>
+         {{book.author}}
+         <hr>
+      {% endfor %}
+   </body>
+</html>

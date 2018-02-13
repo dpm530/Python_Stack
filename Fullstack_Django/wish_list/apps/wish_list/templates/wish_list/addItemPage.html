@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Add Item</title>
+   </head>
+   <body>
+      <h1>Create a New List Item:</h1>
+      <a href='/homePage'>Home</a><br>
+      <a href='/logout'>Logout</a>
+      <form action='/addItem' method='post'>
+         {% csrf_token %}
+         <input type='text' name='addItem'/>
+         <input type='submit' value='Add'/>
+      </form>
+   </body>
+</html>

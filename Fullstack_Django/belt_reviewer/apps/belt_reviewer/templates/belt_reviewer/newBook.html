@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>New Book</title>
+   </head>
+   <body>
+      <h1>Books:</h1>
+      <a href='/success'>Home</a><br>
+      <a href='/'>Logout</a>
+      <h3>{{book.title}}</h3>
+      <h3>Author: {{book.author}}</h3>
+      <h1>Reviews:</h1>
+      {% for review in reviews %}
+         Rating: {{review.rating}}<br>
+         {{user.full_name}} says {{review.content}}<br>
+         Posted on {{review.created_at}}<br>
+         {% if user.id == review.user.id%}
+            <form action='/delete/{{review.id}}' method='post'>
+               {% csrf_token %}
+               <input type='submit' value='Delete'>
+            </form>
+         {% endif %}
+         <hr>
+      {% endfor %}
+   </body>
+</html>

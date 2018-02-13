@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Success</title>
+   </head>
+   <body>
+      <h1>Hello, {{user.first_name}}!</h1>
+      <a href='/logout'>Logout</a>
+      <br>
+      <a href='/popular'>Most Popular Secrets</a>
+      <form action='/secrets' method='post' >
+         <br>
+         {% csrf_token %}
+         <textarea rows='4' cols='50'name='content'></textarea>
+         <input type='submit' value='Post'>
+      </form>
+      <h1>Recent Secrets:</h1>
+
+      {% for secret in secrets %}
+         <p>Number of likes: {{secret.num_likes}}</p>
+         <p>{{secret.content}}</p>
+         {% if user.id == secret.author.id %}
+            <form action='/delete/{{secret.id}}' method='post'>
+               {% csrf_token %}
+               <input type='submit' value='Delete'>
+            </form>
+         {% elif user not in secret.liked_by.all %}
+            <a href='/like/{{secret.id}}'>Like</a>
+         {% else %}
+            <a href='/unlike/{{secret.id}}'>Unlike</a>
+         {% endif %}
+
+         <hr>
+      {% endfor %}
+   </body>
+</html>

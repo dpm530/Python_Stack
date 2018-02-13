@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Home Page</title>
+   </head>
+   <body>
+      <h1>Welcome {{user.alias}}!</h1>
+      <a href='/'>Logout</a><br>
+      <a href='/createWindow'>Add Book and Review</a>
+      <h1>Recent Book Reviews:</h1>
+      {% for book in books %}
+         <a href='/newBook/{{book.id}}'>{{book.title}}</a><br>
+         {{book.author}}<br>
+         {% if user.id == book.user.id %}
+            <form action='/deleteBook/{{book.id}}' method='post'>
+               {% csrf_token %}
+               <input type='submit' value='Delete'>
+            </form>
+         {% endif %}
+         <hr>
+      {% endfor %}
+   </body>
+</html>
