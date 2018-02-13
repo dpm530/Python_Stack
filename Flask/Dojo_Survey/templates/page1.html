@@ -1,0 +1,22 @@
+<html>
+   <head>
+      <title>Dojo Survey</title>
+   </head>
+   <body>
+      <h1>Index Page</h1>
+      <h3>Create a User</h3>
+      <form action='/page2' method='post'>
+         Your Name: <input type='text' name='name'>
+         Dojo Location: <select name="location">
+            <option value="dallas">Dallas</option>
+            <option value="online">Online</option>
+         </select>
+         Favorite Language: <select name="language">
+            <option value="python">Python</option>
+            <option value="javascript">Javascript</option>
+         </select>
+         Comment (Optional): <textarea name="comment"></textarea>
+         <input type='submit' value='create user'>
+      </form>
+   </body>
+</html>
