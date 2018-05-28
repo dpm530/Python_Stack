@@ -1,36 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
    <head>
       <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="/static/belt_reviewer/css/style.css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <title>Index</title>
    </head>
    <body>
-      {% if messages %}
-         {% for message in messages %}
-            <p>{{message}}</p>
-         {% endfor %}
-      {% endif %}
-      <div>
-      <h1>Registration:</h1>
-      <form action='/register' method='post'>
-         {% csrf_token %}
-         Full Name: <input type='text' name='full_name'/>
-         Alias: <input type='text' name='alias'/>
-         Email: <input type='email' name='email'/>
-         Password: <input type='password' name='password'/>
-         Confirm Password: <input type='password' name='password_confirmation'/>
-         <input type='submit' value='Register'/>
-      </form>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <a class="navbar-brand" href="#">GreatReads</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Features</a>
+               </li>
+            </ul>
+            <form class="form-inline" action="" method="post">
+               <input class="form-control" type="text" name="" value="" placeholder="Email address">
+               <input class="form-control" type="text" name="" value="" placeholder="Password">
+               <button type="btn btn-outline-success" name="button">Login</button>
+            </form>
+         </div>
+      </nav>
+      <div id="index" class="container-fluid"><br>
+         <div id="indexRegister" class="container"><br>
+            <div class="row">
+               <div class="col-7">
+                  <h1>Meet your next favorite book.</h1>
+               </div>
+               <div class="col-5">
+                  <form action='/register' method='post'>
+                     {% csrf_token %}
+                     <div class="form-group">
+                        <label for="">Name</label>
+                        <input class="form-control" type='text' name='full_name'/>
+                     </div>
+                     <div class="form-group">
+                        <label for="">Username</label>
+                        <input class="form-control" type='text' name='alias'/>
+                     </div>
+                     <div class="form-group">
+                        <label for="">Email</label>
+                        <input class="form-control" type='email' name='email'/>
+                     </div>
+                     <div class="form-group">
+                        <label for="">Password</label>
+                        <input class="form-control" type='password' name='password'/>
+                     </div>
+                     <div class="form-group">
+                        <label for="">Confirm Password</label>
+                        <input class="form-control" type='password' name='password_confirmation'/>
+                     </div>
+                     <button class="btn btn-primary" type="submit" name="button">Register</button>
+                  </form>
+               </div>
+            </div>
+         </div>
       </div>
-      <br>
-      <div>
-      <h1>Login:</h1>
-      <form action='/login' method='post'>
-         {% csrf_token %}
-         Email: <input type='email' name='email'/>
-         Password: <input type='password' name='password'/>
-         <input type='submit' value='Login'/>
-      </form>
+      <div class="container-fluid">
+
       </div>
+      <footer class="container-fluid">
+
+      </footer>
    </body>
 </html>

@@ -11,6 +11,9 @@ def flashErrors(request,errors):
 def index(request):
     return render(request,'belt_reviewer/index.html')
 
+def newUser(request):
+    return render(request, 'belt_reviewer/newUser.html')
+
 def success(request):
     current_user=User.objects.currentUser(request)
     books=Book.objects.all().order_by('-created_at')
@@ -58,8 +61,8 @@ def login(request):
 
     return redirect('/')
 
-def createWindow(request):
-    return render(request,'belt_reviewer/createWindow.html')
+def newReview(request):
+    return render(request,'belt_reviewer/newReview.html')
 
 def createNewBook(request):
     if request.method=='POST':

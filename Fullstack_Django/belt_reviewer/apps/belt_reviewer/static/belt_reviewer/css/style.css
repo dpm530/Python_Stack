@@ -1,0 +1,15 @@
+#index{
+   background-image: url("/static/belt_reviewer/images/indexImage1.jpg");
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   width: 100%;
+   height: 520px;
+}
+#indexRegister{
+   color: white;
+   border: 1px solid white;
+}
+#indexRegister form{
+   line-height: 0.5;
+}

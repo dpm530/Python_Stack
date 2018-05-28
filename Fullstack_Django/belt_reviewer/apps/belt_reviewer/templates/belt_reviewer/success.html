@@ -7,7 +7,7 @@
    <body>
       <h1>Welcome {{user.alias}}!</h1>
       <a href='/'>Logout</a><br>
-      <a href='/createWindow'>Add Book and Review</a>
+      <a href='/newReview'>Add Book and Review</a>
       <h1>Recent Book Reviews:</h1>
       {% for book in books %}
          <a href='/newBook/{{book.id}}'>{{book.title}}</a><br>
