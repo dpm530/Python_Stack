@@ -14,7 +14,7 @@ def index(request):
 def newUser(request):
     return render(request, 'belt_reviewer/newUser.html')
 
-def success(request):
+def userDashboard(request):
     current_user=User.objects.currentUser(request)
     books=Book.objects.all().order_by('-created_at')
 
@@ -23,7 +23,7 @@ def success(request):
         'books':books,
     }
 
-    return render(request,'belt_reviewer/success.html', context)
+    return render(request,'belt_reviewer/userDashboard.html', context)
 
 def register(request):
     if request.method=='POST':
@@ -54,7 +54,7 @@ def login(request):
                 if hashed_pw==user_password:
                     request.session['user_id']=user.id
 
-                    return redirect('/success')
+                    return redirect('/userDashboard')
 
             errors.append('Invalid account Information')
         flashErrors(request,errors)
@@ -79,7 +79,7 @@ def createNewBook(request):
 
     return redirect('/success')
 
-def newBook(request,book_id):
+def book(request,book_id):
     current_user=User.objects.currentUser(request)
     book=Book.objects.get(id=book_id)
     reviews=book.reviews.all()
@@ -93,7 +93,7 @@ def newBook(request,book_id):
     }
 
 
-    return render(request,'belt_reviewer/newBook.html', context)
+    return render(request,'belt_reviewer/book.html', context)
 
 def deleteReview(request,review_id):
     if request.method=='POST':

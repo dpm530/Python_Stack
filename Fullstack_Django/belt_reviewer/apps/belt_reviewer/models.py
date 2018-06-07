@@ -89,6 +89,8 @@ class User(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     objects=UserManager()
+    def __str__(self):
+        return self.full_name
 
 class Book(models.Model):
     title=models.TextField(max_length=255)
@@ -97,6 +99,8 @@ class Book(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     objects=BookManager()
+    def __str__(self):
+        return self.title
 
 class Review(models.Model):
     content=models.TextField()
@@ -106,3 +110,5 @@ class Review(models.Model):
     created_at=models.DateTimeField(auto_now_add=True)
     updated_at=models.DateTimeField(auto_now=True)
     objects=ReviewManager()
+    def __str__(self):
+        return self.content

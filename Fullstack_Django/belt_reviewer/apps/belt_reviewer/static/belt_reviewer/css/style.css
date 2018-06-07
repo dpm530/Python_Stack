@@ -1,3 +1,9 @@
+html,body{
+   height: 100%;
+}
+nav{
+   background-color: #f4f2e9;
+}
 #index{
    background-image: url("/static/belt_reviewer/images/indexImage1.jpg");
    background-size: cover;
@@ -8,8 +14,15 @@
 }
 #indexRegister{
    color: white;
-   border: 1px solid white;
+   text-shadow: 2px 2px 5px #000000;
+}
+#indexRegister .col-8 h1{
+   font-size: 80px;
+   margin-top: 10%;
 }
 #indexRegister form{
    line-height: 0.5;
+}
+footer{
+   background: #f4f1ea;
 }
